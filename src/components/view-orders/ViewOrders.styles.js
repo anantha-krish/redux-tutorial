@@ -3,6 +3,8 @@ import styled, { css } from "styled-components";
 export const OrdersTable = styled.table`
   border-collapse: collapse;
   font-size: 2rem;
+  cursor: pointer;
+  background-color: white;
 `;
 
 const cellstyles = css`
@@ -24,10 +26,14 @@ export const TableData = styled.td`
 `;
 const TableRowSelected = css`
   color: white;
-  background-color: blue;
+  &:nth-child(even),
+  &:nth-child(odd) {
+    background-color: purple;
+  }
+
   border: 2px solid black;
   &:hover {
-    background-color: darkblue;
+    background-color: purple;
   }
 `;
 

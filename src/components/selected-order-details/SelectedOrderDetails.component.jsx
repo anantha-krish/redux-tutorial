@@ -1,7 +1,18 @@
 import React from "react";
 
-const SelectedOrderDetails = () => {
-  return <div>Order ID: 1234 status: Created</div>;
+const SelectedOrderDetails = ({ order = {} }) => {
+  console.log(order);
+  const isEmpty = Object.keys(order).length === 0;
+  return (
+    <div>
+      {!isEmpty && (
+        <>
+          Order ID: {order.id} status: {order.status}
+        </>
+      )}
+      {isEmpty && <>NO orders selected</>}
+    </div>
+  );
 };
 
 export default SelectedOrderDetails;

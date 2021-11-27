@@ -5,15 +5,14 @@ import {
   TableHeader,
   TableRow,
 } from "./ViewOrders.styles";
+import { useSelector, useDispatch } from "react-redux";
+import { selectOrder } from "../../redux/order/order.actions";
+import { orderStatusLabelMapping } from "../../App.constants";
 
 const ViewOrders = () => {
-  let orders = {
-    id: "12",
-    productName: "test",
-    quantity: 2,
-    status: "Created",
-    company: "ABC Pvt. Ltd.",
-  };
+  const orders = useSelector((state) => state.orders);
+  const selectedOrder = useSelector((state) => state.selectedOrder);
+  const dispatch = useDispatch();
   return (
     <OrdersTable>
       <thead>
@@ -26,24 +25,19 @@ const ViewOrders = () => {
         </TableRow>
       </thead>
       <tbody>
-        <TableRow
-          key={orders.id}
-          onClick={() => console.log(orders.id)}
-          selected={true}
-        >
-          <TableData>{orders.id}</TableData>
-          <TableData>{orders.productName}</TableData>
-          <TableData>{orders.quantity}</TableData>
-          <TableData>{orders.status}</TableData>
-          <TableData>{orders.company}</TableData>
-        </TableRow>
-        <TableRow key={orders.id} onClick={() => console.log(orders.id)}>
-          <TableData>{orders.id}</TableData>
-          <TableData>{orders.productName}</TableData>
-          <TableData>{orders.quantity}</TableData>
-          <TableData>{orders.status}</TableData>
-          <TableData>{orders.company}</TableData>
-        </TableRow>
+        {orders?.map((order) => (
+          <TableRow
+            key={order.id}
+            onClick={() => dispatch(selectOrder(order))}
+            selected={order.id === selectedOrder.id}
+          >
+            <TableData>{order.id}</TableData>
+            <TableData>{order.productName}</TableData>
+            <TableData>{order.quantity}</TableData>
+            <TableData>{orderStatusLabelMapping[order.status]}</TableData>
+            <TableData>{order.companyName}</TableData>
+          </TableRow>
+        ))}
       </tbody>
     </OrdersTable>
   );

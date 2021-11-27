@@ -6,11 +6,17 @@ export const ChipContainer = styled.div`
   background-color: white;
   border: 5px solid purple;
   border-radius: 6px;
-  margin-bottom: 1rem;
+  margin: 0.5rem;
+  width: max-content;
+  flex: 1 0 45%;
   flex-direction: column;
-  width: 10rem;
+  justify-content: space-between;
 `;
-
+export const DashboardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
 export const ChipLabel = styled.div`
   display: flex;
   font-size: 1.6rem;
