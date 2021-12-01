@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { createOrder } from "../../redux/order/order.actions";
 import { connect } from "react-redux";
+import { AppButton, AppInput } from "../../App.styles";
 
 const createOrderInitialState = {
   productName: "",
@@ -25,29 +26,28 @@ export class CreateOrder extends Component {
   render() {
     return (
       <>
-        <input
+        <AppInput
           name="productName"
           value={this.state.productName}
           type="text"
           onChange={this.handleChange}
           placeholder="Product Name"
         />
-        <input
+        <AppInput
           name="quantity"
           value={this.state.quantity}
           onChange={this.handleChange}
           type="number"
           placeholder="Quantity"
         />
-
-        <input
+        <AppInput
           name="companyName"
           value={this.state.companyName}
           onChange={this.handleChange}
           type="text"
           placeholder="Company Name"
         />
-        <input type="button" value="Submit Order" onClick={this.handleSubmit} />
+        <AppButton onClick={this.handleSubmit}> Create Order</AppButton>
       </>
     );
   }

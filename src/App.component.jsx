@@ -8,24 +8,27 @@ import ViewOrders from "./components/view-orders/ViewOrders.component";
 function App() {
   return (
     <AppContainer>
-      <AppBlock flex="2">
+      <AppBlock flex={2}>
         <h1>View Orders</h1>
         <ViewOrders />
       </AppBlock>
-      <AppBlock flex="1">
+      <AppBlock bkgColor="rebeccapurple">
         <h1>Dashboard </h1>
         <DashboardOrders />
       </AppBlock>
-      <AppBlock flex="1">
-        <h1>Create </h1>
+      <AppBlock bkgColor="purple">
+        <h1>Create Order</h1>
         <CreateOrder />
       </AppBlock>
-      <AppBlock flex="1">
-        <h1>Update </h1>
+      <AppBlock bkgColor="darkgoldenrod">
+        <h1>Update Order </h1>
         <UpdateOrderStatus />
       </AppBlock>
-      <AppBlock flex="1">
-        <h1>Delete </h1>
+      <AppBlock bkgColor="crimson">
+        <span style={{ fontSize: "12px", color: "white" }}>
+          (Challenge Yourself)
+        </span>
+        <h1>Delete Order</h1>
         <DeleteOrder />
       </AppBlock>
     </AppContainer>

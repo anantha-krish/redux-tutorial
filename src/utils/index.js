@@ -11,7 +11,11 @@ export const findAndUpdateOrderStatusById = (state, { id, status }) => {
   const updatedOrders = state.orders.slice();
   console.log({ updatedOrders, orderIndex });
   updatedOrders[orderIndex].status = status;
-  return { ...state, orders: updatedOrders };
+  return {
+    ...state,
+    orders: updatedOrders,
+    selectedOrder: { ...state.selectedOrder, status },
+  };
 };
 
 export const findAndDeleteOrderById = (state, id) => {

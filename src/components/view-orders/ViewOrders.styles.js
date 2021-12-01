@@ -28,12 +28,15 @@ const TableRowSelected = css`
   color: white;
   &:nth-child(even),
   &:nth-child(odd) {
-    background-color: purple;
+    background-color: darkslategray;
   }
 
-  border: 2px solid black;
+  border: 5px solid lightgreen;
   &:hover {
-    background-color: purple;
+    background-color: darkslategray;
+  }
+  td {
+    border-color: lightgreen;
   }
 `;
 

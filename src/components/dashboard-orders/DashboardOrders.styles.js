@@ -19,7 +19,7 @@ export const DashboardContainer = styled.div`
 `;
 export const ChipLabel = styled.div`
   display: flex;
-  font-size: 1.6rem;
+  font-size: 20px;
   font-weight: 700;
   color: purple;
   justify-content: center;
